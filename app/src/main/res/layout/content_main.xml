@@ -6,4 +6,12 @@
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".MainActivity"
-    tools:showIn="@layout/activity_main"/>
+    tools:showIn="@layout/activity_main">
+
+    <LinearLayout
+        android:layout_width="395dp"
+        android:layout_height="172dp"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="39dp"/>
+</android.support.constraint.ConstraintLayout>

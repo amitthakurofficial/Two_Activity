@@ -1,5 +1,6 @@
 package com.example.two_activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -8,6 +9,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.EditText;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -17,11 +20,30 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        final EditText name1,message;
+        name1=findViewById(R.id.editText5);
+        message=findViewById(R.id.editText6);
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                String s1=name1.getText().toString().trim();
+                String s2=message.getText().toString().trim();
+                if(s1.equals("")||s2.equals(""))
+                {
+                    Toast.makeText(MainActivity.this,"enter values first!!",Toast.LENGTH_SHORT).show();
+                }
+                else
+                {
+                    Intent sendmessage=new Intent(MainActivity.this,Main2Activity.class);
+                    sendmessage.putExtra("name",s1);
+                    sendmessage.putExtra("message",s2);
+                    startActivity(sendmessage);
+
+                }
+
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
